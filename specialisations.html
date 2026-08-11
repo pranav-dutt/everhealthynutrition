@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Specialisations — EverHealthy Nutrition Academy</title>
+<meta name="description" content="Nine focused programs — functional maternity, pediatric, sports nutrition, gut transformation, GLP-1 and 2-week micro-certifications in longevity, peptides and biohacking.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231f3b2c'/%3E%3Ctext x='32' y='44' font-family='Georgia' font-size='36' fill='%23faf7f1' text-anchor='middle'%3Ee%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="specs">
+<a class="skip-link" href="#main">Skip to content</a>
+<header id="site-header" class="site-header"></header>
+
+<main id="main">
+
+  <section class="section" style="padding-bottom:clamp(36px,5vw,56px)" data-screen-label="Specialisations hero">
+    <div class="wrap">
+      <div class="eyebrow" data-reveal>Specialisations · 9 programs</div>
+      <h1 data-reveal style="margin:20px 0 20px;max-width:18ch;--d:80ms">Focused skills, <span class="italic" style="color:var(--clay)">weeks not months.</span></h1>
+      <p class="lede" data-reveal style="--d:160ms">
+        Life-stage tracks, our flagship gut program, modern GLP-1 courses and three 2-week micro-certifications. Open enrolment — no prerequisite for most.
+      </p>
+      <div class="row" data-reveal style="margin-top:22px;--d:220ms" data-tab-group id="filter-group">
+        <div class="tabs-bar">
+          <button class="tab-btn active" data-filter="all">All 9</button>
+          <button class="tab-btn" data-filter="life">Life-stage</button>
+          <button class="tab-btn" data-filter="gut">Gut &amp; weight</button>
+          <button class="tab-btn" data-filter="micro">2-week micro</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cream" data-screen-label="Specialisations grid">
+    <div class="wrap">
+      <div class="grid g3" id="specs-grid"></div>
+    </div>
+  </section>
+
+  <section class="section" data-screen-label="Micro-certs band">
+    <div class="wrap split s-40">
+      <div data-reveal>
+        <div class="eyebrow">New for 2026</div>
+        <h2 style="margin:16px 0 18px">Three micro-certifications.<br><span class="italic" style="color:var(--clay)">Two weeks each.</span></h2>
+        <p class="lede">Signalome, Longevica and HumanOS — compact, evidence-first programs on peptide science, healthy aging and measured human optimization. Built for busy practitioners who want current science without a semester.</p>
+        <div class="row" style="margin-top:20px">
+          <a class="btn dark" href="program.html?id=signalome">Signalome →</a>
+          <a class="btn ghost" href="program.html?id=longevica">Longevica →</a>
+          <a class="btn ghost" href="program.html?id=humanos">HumanOS →</a>
+        </div>
+      </div>
+      <div class="grid" data-reveal style="grid-template-columns:1fr 1fr;gap:12px;--d:120ms">
+        <div class="ph r34"><img data-pimg="signalome" alt="Peptide science"></div>
+        <div class="ph r34" style="margin-top:24px"><img data-pimg="longevica" alt="Healthy aging"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section forest" data-screen-label="Specialisations CTA">
+    <div class="wrap">
+      <h2 style="max-width:20ch" data-reveal>Unsure which fits your practice?</h2>
+      <p data-reveal style="font-size:18px;max-width:52ch;margin-top:14px;--d:80ms">Tell us who you see in clinic — we'll point you at the highest-leverage program.</p>
+      <div class="row" data-reveal style="margin-top:22px;--d:160ms">
+        <a class="btn primary lg" href="book.html">Book a discovery call →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="site-footer" class="site-footer"></footer>
+
+<script src="js/data.js"></script>
+<script src="js/site.js"></script>
+<script>
+(function () {
+  document.querySelectorAll("[data-pimg]").forEach(el => { el.src = EH.progImg[el.dataset.pimg]; el.loading = "lazy"; });
+  const groups = { life: ["maternity", "pediatric", "sports"], gut: ["gut-transformation", "obesity-glp1", "beyond-ozempic"], micro: ["signalome", "longevica", "humanos"] };
+  const grid = document.getElementById("specs-grid");
+  function render(filter) {
+    const list = filter === "all" ? EH.specs : EH.specs.filter(s => groups[filter].includes(s.id));
+    grid.innerHTML = list.map((s, i) => EHUI.programCard(s, {})).join("");
+  }
+  render("all");
+  document.querySelectorAll("[data-filter]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("[data-filter]").forEach(b => b.classList.toggle("active", b === btn));
+      render(btn.dataset.filter);
+    });
+  });
+})();
+</script>
+</body>
+</html>

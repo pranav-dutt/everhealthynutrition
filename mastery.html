@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mastery Programs — EverHealthy Nutrition Academy</title>
+<meta name="description" content="Eight 6-week clinical mastery programs for certified practitioners — thyroid, cardio-metabolic, menopause, PCOS, inflammation, reproductive, dental, skin & hair.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231f3b2c'/%3E%3Ctext x='32' y='44' font-family='Georgia' font-size='36' fill='%23faf7f1' text-anchor='middle'%3Ee%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="mastery">
+<a class="skip-link" href="#main">Skip to content</a>
+<header id="site-header" class="site-header"></header>
+
+<main id="main">
+
+  <section class="section" style="padding-bottom:clamp(36px,5vw,56px)" data-screen-label="Mastery hero">
+    <div class="wrap split s-40">
+      <div>
+        <div class="eyebrow" data-reveal>Mastery programs · 8 tracks</div>
+        <h1 data-reveal style="margin:20px 0 20px;--d:80ms">Go <span class="italic" style="color:var(--clay)">condition-deep.</span></h1>
+        <p class="lede" data-reveal style="--d:160ms">
+          Six-week clinical deep-dives for certified practitioners. Each mastery takes one specialty — thyroid, menopause, PCOS, inflammation — and works it case by case with faculty, until the protocols are yours.
+        </p>
+        <div class="row" data-reveal style="margin-top:24px;--d:220ms">
+          <span class="tag outline">6 weeks each</span>
+          <span class="tag outline">₹35,000 · EMI 3 × ₹11,900</span>
+          <span class="tag outline">Weekly live case clinics</span>
+          <span class="tag outline">Verifiable badge</span>
+        </div>
+      </div>
+      <div class="ph r43 ph-tint" data-reveal style="--d:140ms">
+        <img data-img="workshop" alt="Mentor-led case clinic">
+        <span class="ph-cap">Weekly live case clinics</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cream" data-screen-label="Mastery grid">
+    <div class="wrap">
+      <div class="sec-head">
+        <div data-reveal>
+          <div class="eyebrow">All eight</div>
+          <h2>Pick your specialty.</h2>
+        </div>
+        <span class="kicker" data-reveal>Eligibility: Foundations / AFNCP or equivalent</span>
+      </div>
+      <div class="grid g4" id="mastery-grid" style="gap:16px"></div>
+    </div>
+  </section>
+
+  <section class="section" data-screen-label="Mastery format">
+    <div class="wrap split">
+      <div data-reveal>
+        <div class="eyebrow">The format</div>
+        <h2 style="margin:16px 0 18px">Six weeks, built like a clinic.</h2>
+        <p class="lede">Masteries assume you already hold the fundamentals. The time goes into worked cases — real anonymised patients, dissected live with faculty, until the reasoning is second nature.</p>
+        <ul class="checks" style="margin-top:18px">
+          <li>Weekly live case clinics with faculty</li>
+          <li>Recorded deep-dive lectures between sessions</li>
+          <li>Condition-specific protocol library — yours to keep</li>
+          <li>Blood-marker interpretation drills</li>
+          <li>Final case exam + verifiable badge</li>
+        </ul>
+      </div>
+      <div class="grid" data-reveal style="grid-template-columns:1fr 1fr;gap:12px;--d:120ms">
+        <div class="ph r34"><img data-img="consult" alt="Clinical consultation"></div>
+        <div class="ph r34" style="margin-top:24px"><img data-img="laptopSteth" alt="Remote case review"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section forest" data-screen-label="Mastery CTA">
+    <div class="wrap">
+      <h2 style="max-width:22ch" data-reveal>Not certified with us yet?</h2>
+      <p data-reveal style="font-size:18px;max-width:56ch;margin-top:14px;--d:80ms">Masteries are designed for graduates of our certification arc — but practitioners with equivalent training can apply. Book a call and we'll assess your background.</p>
+      <div class="row" data-reveal style="margin-top:22px;--d:160ms">
+        <a class="btn primary lg" href="book.html">Book an eligibility call →</a>
+        <a class="btn ghost-light lg" href="courses.html">See the certification arc</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="site-footer" class="site-footer"></footer>
+
+<script src="js/data.js"></script>
+<script src="js/site.js"></script>
+<script>
+(function () {
+  document.querySelectorAll("[data-img]").forEach(el => { el.src = EH.img[el.dataset.img]; el.loading = "lazy"; });
+  document.getElementById("mastery-grid").innerHTML = EH.masteries.map((m, i) => `
+    <a class="card pcard" href="program.html?id=${m.id}" data-reveal style="--d:${(i % 4) * 70}ms">
+      <div class="ph r32"><img src="${EH.progImg[m.id]}" alt="${m.name}" loading="lazy"><span class="tag clay">0${m.seq}</span></div>
+      <div class="pcard-body">
+        <div class="kicker">6 weeks · live clinics</div>
+        <h3 style="font-size:19px">${m.name}</h3>
+        <p class="pcard-desc">${m.short}</p>
+        <div class="pcard-foot"><span class="price">${EH.fmtPrice(m.price)}</span><span class="go">Explore →</span></div>
+      </div>
+    </a>`).join("");
+})();
+</script>
+</body>
+</html>

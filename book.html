@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book a Call — EverHealthy Nutrition Academy</title>
+<meta name="description" content="Book a free 20-minute discovery call about our certifications, or a ₹1,000 diet consultation with our clinical healing team.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231f3b2c'/%3E%3Ctext x='32' y='44' font-family='Georgia' font-size='36' fill='%23faf7f1' text-anchor='middle'%3Ee%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="book">
+<a class="skip-link" href="#main">Skip to content</a>
+<header id="site-header" class="site-header"></header>
+
+<main id="main">
+
+  <section class="section" style="padding-bottom:clamp(30px,4vw,48px)" data-screen-label="Book hero">
+    <div class="wrap">
+      <div class="eyebrow" data-reveal>Book with us</div>
+      <h1 data-reveal style="margin:20px 0 20px;max-width:16ch;--d:80ms">Two ways to <span class="italic" style="color:var(--clay)">begin.</span></h1>
+      <p class="lede" data-reveal style="--d:160ms">Studying with us starts with a free discovery call. Healing with us starts with a diet consultation. Pick your track below.</p>
+      <div class="tabs-bar" data-reveal style="margin-top:24px;--d:220ms" id="book-tabs">
+        <button class="tab-btn active" data-book="discovery">Discovery call · Free</button>
+        <button class="tab-btn" data-book="consultation">Diet consultation · ₹1,000</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCOVERY -->
+  <section class="section cream" id="discovery" data-book-panel="discovery" data-screen-label="Discovery form">
+    <div class="wrap split" style="align-items:start">
+      <div data-reveal>
+        <div class="eyebrow">For future practitioners</div>
+        <h2 style="margin:16px 0 16px">The 20-minute discovery call.</h2>
+        <p class="lede" style="margin-bottom:20px">An admissions mentor reviews your background and goals, then recommends a starting point on the certification arc — honestly, including "not yet" if that's the truth.</p>
+        <ul class="checks">
+          <li>Free, no obligation — video or phone</li>
+          <li>Get a personal course recommendation</li>
+          <li>EMI &amp; cohort dates for your shortlist</li>
+          <li>Ask anything — exams, workload, career paths</li>
+        </ul>
+        <div class="card" style="margin-top:22px;flex-direction:row;align-items:center;gap:16px">
+          <div class="ph r11" style="width:56px;border-radius:50%;flex-shrink:0"><img data-timg="0" alt="Alumni portrait"></div>
+          <p style="margin:0;font-size:13.5px;font-style:italic">"The discovery call told me to start with Blood Chemistry, not the full diploma — exactly right for my background." <span class="kicker" style="font-style:normal">— Dr. Priya Menon</span></p>
+        </div>
+      </div>
+      <form class="card" data-form data-reveal style="padding:clamp(22px,3vw,32px);--d:120ms">
+        <div class="form-fields form-grid">
+          <div class="field"><label for="d-name">Full name</label><input id="d-name" name="name" required placeholder="Your name"></div>
+          <div class="field"><label for="d-phone">Phone / WhatsApp</label><input id="d-phone" name="phone" type="tel" required placeholder="+91"></div>
+          <div class="field span2"><label for="d-email">Email</label><input id="d-email" name="email" type="email" required placeholder="you@example.com"></div>
+          <div class="field"><label for="d-bg">Your background</label>
+            <select id="d-bg" name="background" required>
+              <option value="">Select…</option>
+              <option>Nutritionist / Dietician</option>
+              <option>Doctor / Physician</option>
+              <option>Allied health professional</option>
+              <option>Fitness / wellness coach</option>
+              <option>Career switcher — science background</option>
+              <option>Career switcher — no science background</option>
+            </select>
+          </div>
+          <div class="field"><label for="d-course">Interested in</label>
+            <select id="d-course" name="course">
+              <option>Not sure — recommend for me</option>
+              <option>Functional Nutrition Foundations</option>
+              <option>Blood Chemistry Analysis</option>
+              <option>Applied program (AFNCP)</option>
+              <option>Advanced program (CAFNP)</option>
+              <option>Gut Health Certification</option>
+              <option>Metabolic &amp; Hormone Certification</option>
+              <option>A Mastery program</option>
+              <option>A Specialisation</option>
+            </select>
+          </div>
+          <div class="field span2"><label for="d-goal">What are you hoping to build? <span style="text-transform:none;letter-spacing:0;color:var(--muted)">(optional)</span></label><textarea id="d-goal" name="goal" placeholder="e.g. I run a diet clinic and want to add functional bloodwork…"></textarea></div>
+          <div class="span2"><button class="btn primary lg" type="submit" style="width:100%">Request my discovery call →</button></div>
+          <p class="kicker span2" style="margin:0">We reply within one working day. Demo form — submissions aren't stored yet.</p>
+        </div>
+        <div class="form-ok">
+          <div class="ok-ico">✓</div>
+          <h4>Request received</h4>
+          <p style="font-size:14.5px">An admissions mentor will reach out within one working day to schedule your call.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- CONSULTATION -->
+  <section class="section cream" id="consultation" data-book-panel="consultation" hidden data-screen-label="Consultation form">
+    <div class="wrap split" style="align-items:start">
+      <div data-reveal>
+        <div class="eyebrow">For patients</div>
+        <h2 style="margin:16px 0 16px">Diet consultation with the healing team.</h2>
+        <p class="lede" style="margin-bottom:20px">A 45-minute initial consultation with our clinical nutrition team — history, reports review and a first plan. If a 3-month healing program fits, we'll propose one; if not, we'll say so.</p>
+        <ul class="checks">
+          <li>₹1,000 initial consultation · 45 minutes</li>
+          <li>Bring recent blood reports if you have them</li>
+          <li>Nutrition, yoga, breathwork &amp; energy practices</li>
+          <li>3-month programs across 12 condition areas</li>
+        </ul>
+        <div class="disclaimer" style="margin-top:22px">
+          <div class="ico">!</div>
+          <div>Our programs complement medical care — they never replace it. Keep your treating physicians involved; medication changes are theirs to make.</div>
+        </div>
+      </div>
+      <form class="card" data-form data-reveal style="padding:clamp(22px,3vw,32px);--d:120ms">
+        <div class="form-fields form-grid">
+          <div class="field"><label for="c-name">Full name</label><input id="c-name" name="name" required placeholder="Your name"></div>
+          <div class="field"><label for="c-phone">Phone / WhatsApp</label><input id="c-phone" name="phone" type="tel" required placeholder="+91"></div>
+          <div class="field span2"><label for="c-email">Email</label><input id="c-email" name="email" type="email" required placeholder="you@example.com"></div>
+          <div class="field span2"><label for="c-cond">Primary concern</label>
+            <select id="c-cond" name="condition" required>
+              <option value="">Select…</option>
+              <option>Diabetes / blood sugar</option>
+              <option>Thyroid</option>
+              <option>Gut / digestion (IBS, bloating…)</option>
+              <option>Weight management</option>
+              <option>Hormonal / gynaec (PCOS, menopause…)</option>
+              <option>Autoimmune / inflammation</option>
+              <option>Skin / hair</option>
+              <option>Child's nutrition</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field span2"><label for="c-notes">Tell us briefly what's going on <span style="text-transform:none;letter-spacing:0;color:var(--muted)">(optional)</span></label><textarea id="c-notes" name="notes" placeholder="Symptoms, how long, what you've tried…"></textarea></div>
+          <div class="span2"><button class="btn primary lg" type="submit" style="width:100%">Request consultation — ₹1,000 →</button></div>
+          <p class="kicker span2" style="margin:0">Payment link is shared after scheduling. Demo form — submissions aren't stored yet.</p>
+        </div>
+        <div class="form-ok">
+          <div class="ok-ico">✓</div>
+          <h4>Request received</h4>
+          <p style="font-size:14.5px">Our clinical coordinator will call to schedule your consultation and share the payment link.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- CONTACT STRIP -->
+  <section class="section" data-screen-label="Contact strip">
+    <div class="wrap grid g3">
+      <div class="card" data-reveal><div class="eyebrow">Email</div><h4 style="margin-top:10px"><a href="mailto:hello@everhealthy.academy" style="color:var(--ink)">hello@everhealthy.academy</a></h4><p style="font-size:13.5px;margin:0">Replies within one working day.</p></div>
+      <div class="card" data-reveal style="--d:100ms"><div class="eyebrow">WhatsApp</div><h4 style="margin-top:10px">+91 98XXX XXXXX</h4><p style="font-size:13.5px;margin:0">Mon–Sat, 10:00–18:00 IST.</p></div>
+      <div class="card" data-reveal style="--d:200ms"><div class="eyebrow">Cohorts</div><h4 style="margin-top:10px">Next intake: August 2026</h4><p style="font-size:13.5px;margin:0">Seats are limited per cohort for mentor time.</p></div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="site-footer" class="site-footer"></footer>
+
+<script src="js/data.js"></script>
+<script src="js/site.js"></script>
+<script>
+(function () {
+  document.querySelectorAll("[data-timg]").forEach(el => { el.src = EH.testimonials[+el.dataset.timg].img; });
+
+  const tabs = document.getElementById("book-tabs");
+  function show(which) {
+    document.querySelectorAll("[data-book-panel]").forEach(p => { p.hidden = p.dataset.bookPanel !== which; });
+    tabs.querySelectorAll(".tab-btn").forEach(b => b.classList.toggle("active", b.dataset.book === which));
+  }
+  tabs.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-book]");
+    if (btn) show(btn.dataset.book);
+  });
+  if (location.hash === "#consultation") show("consultation");
+  window.addEventListener("hashchange", () => { if (location.hash === "#consultation") show("consultation"); });
+})();
+</script>
+</body>
+</html>

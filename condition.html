@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Condition — EverHealthy Nutrition Academy</title>
+<meta name="description" content="Condition library — root causes, five worked cases and related training programs.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231f3b2c'/%3E%3Ctext x='32' y='44' font-family='Georgia' font-size='36' fill='%23faf7f1' text-anchor='middle'%3Ee%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="conditions">
+<a class="skip-link" href="#main">Skip to content</a>
+<header id="site-header" class="site-header"></header>
+
+<main id="main">
+
+  <section class="section" style="padding-bottom:clamp(30px,4vw,48px)" data-screen-label="Condition hero">
+    <div class="wrap">
+      <nav class="crumb" data-reveal id="crumb"></nav>
+      <div class="split s-40" style="margin-top:26px;align-items:start">
+        <div>
+          <div class="row" data-reveal><span class="tag clay">Condition library</span><span class="tag outline">5 worked cases</span></div>
+          <h1 style="margin:18px 0 18px" id="hero-title" data-reveal style="--d:60ms"></h1>
+          <p class="lede" id="hero-intro" data-reveal style="--d:120ms"></p>
+        </div>
+        <div class="ph r43 ph-tint" data-reveal style="--d:120ms"><img id="hero-img" alt=""></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cream" data-screen-label="Root causes">
+    <div class="wrap">
+      <div class="sec-head">
+        <div data-reveal>
+          <div class="eyebrow">What we look for</div>
+          <h2>Common root-cause patterns.</h2>
+        </div>
+      </div>
+      <div class="grid g3" id="roots"></div>
+    </div>
+  </section>
+
+  <section class="section" data-screen-label="Worked cases">
+    <div class="wrap">
+      <div class="sec-head">
+        <div data-reveal>
+          <div class="eyebrow">From the case library</div>
+          <h2>Five worked cases.</h2>
+          <p class="lede">Anonymised composites, exactly as they're dissected in class — tap a case to see the full workup.</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px" id="cases"></div>
+      <div class="disclaimer" style="margin-top:22px" data-reveal>
+        <div class="ico">!</div>
+        <div>Educational composites for practitioner training — not medical advice. Medication decisions shown were made by the patients' own physicians. Individual results vary.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section forest" data-screen-label="Train for this">
+    <div class="wrap">
+      <div class="sec-head">
+        <div data-reveal>
+          <div class="eyebrow" style="color:var(--sand)">Train for this</div>
+          <h2 id="train-title">Learn to run these workups.</h2>
+        </div>
+      </div>
+      <div class="grid g3" id="related"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="site-footer" class="site-footer"></footer>
+
+<script src="js/data.js"></script>
+<script src="js/site.js"></script>
+<script>
+(function () {
+  const id = new URLSearchParams(location.search).get("id") || "diabetes";
+  const c = EH.condition(id) || EH.condition("diabetes");
+  const $ = (s) => document.querySelector(s);
+
+  document.title = c.name + " — Condition Library — EverHealthy Nutrition Academy";
+  $("#crumb").innerHTML = `<a href="index.html">Home</a> / <a href="conditions.html">Conditions</a> / <span style="color:var(--ink)">${c.name}</span>`;
+  $("#hero-title").textContent = c.name;
+  $("#hero-intro").textContent = c.intro;
+  $("#hero-img").src = EH.condImg[c.id];
+  $("#hero-img").alt = c.name;
+
+  $("#roots").innerHTML = c.roots.map((r, i) => `
+    <div class="card" data-reveal style="--d:${(i % 3) * 80}ms">
+      <span class="kicker" style="color:var(--clay)">0${i + 1}</span>
+      <p style="margin:0;font-weight:500;color:var(--ink);font-size:15.5px">${r}</p>
+    </div>`).join("");
+
+  $("#cases").innerHTML = c.cases.map((cs, i) => `
+    <div class="case-card ${i === 0 ? "open" : ""}" data-reveal style="--d:${i * 60}ms">
+      <button class="case-head" aria-expanded="${i === 0}">
+        <div>
+          <div class="case-id">Case ${String(i + 1).padStart(2, "0")} · ${cs.who}</div>
+          <h4>“${cs.cc}”</h4>
+        </div>
+        <span class="chev" style="font-size:20px;color:var(--ink-soft)">+</span>
+      </button>
+      <div class="case-body">
+        <div class="case-grid">
+          <div class="case-cell"><b>The overlooked clues</b>${cs.clues}</div>
+          <div class="case-cell"><b>Root causes found</b>${cs.roots}</div>
+          <div class="case-cell"><b>Protocol focus</b>${cs.focus}</div>
+          <div class="case-cell" style="background:var(--forest);color:rgba(255,255,255,0.9)"><b style="color:var(--sand)">The shift</b>${cs.shift}</div>
+        </div>
+      </div>
+    </div>`).join("");
+
+  // chevron rotation for case cards
+  document.querySelectorAll(".case-card").forEach(card => {
+    card.querySelector(".case-head").addEventListener("click", () => {
+      const chev = card.querySelector(".chev");
+      chev.style.transform = card.classList.contains("open") ? "rotate(45deg)" : "";
+    });
+    if (card.classList.contains("open")) card.querySelector(".chev").style.transform = "rotate(45deg)";
+  });
+
+  $("#train-title").textContent = "Learn to run these " + c.name.toLowerCase() + " workups.";
+  const rel = [EH.program(c.related.cert), EH.program(c.related.mastery), EH.program(c.related.spec)].filter(Boolean);
+  $("#related").innerHTML = rel.map((r, i) => EHUI.programCard(r, { reveal: true, delay: i * 90 })).join("");
+
+  EHUI.refresh(document);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learn by Condition — EverHealthy Nutrition Academy</title>
+<meta name="description" content="Six condition libraries — diabetes, thyroid, IBS, obesity, inflammation and gynaec health — each with five worked cases and our 11-step case-analysis framework.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231f3b2c'/%3E%3Ctext x='32' y='44' font-family='Georgia' font-size='36' fill='%23faf7f1' text-anchor='middle'%3Ee%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="conditions">
+<a class="skip-link" href="#main">Skip to content</a>
+<header id="site-header" class="site-header"></header>
+
+<main id="main">
+
+  <section class="section" style="padding-bottom:clamp(36px,5vw,56px)" data-screen-label="Conditions hero">
+    <div class="wrap">
+      <div class="eyebrow" data-reveal>Learn by condition · 6 libraries</div>
+      <h1 data-reveal style="margin:20px 0 20px;max-width:17ch;--d:80ms">How we work up <span class="italic" style="color:var(--clay)">real cases.</span></h1>
+      <p class="lede" data-reveal style="--d:160ms">
+        This is the teaching style inside every program: real anonymised patients, traced from chief complaint to root cause to protocol. Each library holds five worked cases plus the framework behind them.
+      </p>
+    </div>
+  </section>
+
+  <section class="section cream" data-screen-label="Conditions grid">
+    <div class="wrap">
+      <div class="grid g3" id="cond-grid"></div>
+      <div class="disclaimer" style="margin-top:26px" data-reveal>
+        <div class="ico">!</div>
+        <div>Case studies are anonymised composites used for practitioner education. They are not medical advice, and individual results vary. Patients should always work with qualified healthcare providers.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" data-screen-label="Framework">
+    <div class="wrap">
+      <div class="sec-head">
+        <div data-reveal>
+          <div class="eyebrow">The method behind every case</div>
+          <h2>The 11-step case-analysis framework.</h2>
+          <p class="lede">Taught in every certification, drilled in every mastery. This is how our practitioners think.</p>
+        </div>
+      </div>
+      <div class="fw-grid" id="framework"></div>
+    </div>
+  </section>
+
+  <section class="section forest" data-screen-label="Conditions CTA">
+    <div class="wrap">
+      <h2 style="max-width:22ch" data-reveal>Want to reason like this in your own clinic?</h2>
+      <p data-reveal style="font-size:18px;max-width:52ch;margin-top:14px;--d:80ms">The certification arc teaches the framework; the masteries drill it condition by condition.</p>
+      <div class="row" data-reveal style="margin-top:22px;--d:160ms">
+        <a class="btn primary lg" href="courses.html">See the certifications →</a>
+        <a class="btn ghost-light lg" href="book.html">Book a discovery call</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="site-footer" class="site-footer"></footer>
+
+<script src="js/data.js"></script>
+<script src="js/site.js"></script>
+<script>
+(function () {
+  document.getElementById("cond-grid").innerHTML = EH.conditions.map((c, i) => `
+    <a class="card pcard" href="condition.html?id=${c.id}" data-reveal style="--d:${(i % 3) * 90}ms">
+      <div class="ph r32 ph-tint"><img src="${EH.condImg[c.id]}" alt="${c.name}" loading="lazy"></div>
+      <div class="pcard-body">
+        <div class="kicker">5 worked cases</div>
+        <h3>${c.name}</h3>
+        <p class="pcard-desc">${c.tagline}</p>
+        <div class="pcard-foot"><span class="kicker">Condition library</span><span class="go">Open →</span></div>
+      </div>
+    </a>`).join("");
+
+  document.getElementById("framework").innerHTML = EH.framework.map((f, i) => `
+    <div class="fw-step" data-reveal style="--d:${(i % 2) * 80}ms">
+      <div class="fw-n">${String(i + 1).padStart(2, "0")}</div>
+      <div>
+        <h4>${f.t}</h4>
+        <p>${f.d}</p>
+        ${f.q ? `<span class="fw-quote">“${f.q}”</span>` : ""}
+      </div>
+    </div>`).join("");
+})();
+</script>
+</body>
+</html>
